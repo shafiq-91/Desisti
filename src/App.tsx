@@ -5,6 +5,8 @@ import Home from './pages/Home';
 import Incidents from './pages/Incidents';
 import Locations from './pages/Locations';
 import MiniChat from './components/MiniChat';
+import ManageIncidents from './pages/ManageIncidents';
+import Started from './pages/Started';
 
 const App: React.FC = () => {
   const [isChatOpen, setIsChatOpen] = useState(false);
@@ -19,7 +21,9 @@ const App: React.FC = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/incidents" element={<Incidents />} />
+        <Route path='/incidents/Manage-Incidents' element={<ManageIncidents />} />
         <Route path="/locations" element={<Locations />} />
+        <Route path='/incidents/new-incident/started' element={<Started />} />
       </Routes>
 
       {/* Chat Toggle */}
