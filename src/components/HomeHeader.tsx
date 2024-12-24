@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import SearchIcon from '@mui/icons-material/Search';
 
 interface HomeHeaderProps {
@@ -7,12 +8,12 @@ interface HomeHeaderProps {
     searchPlaceholder?: string;
     sortOptions?: string[];
     buttonText?: React.ReactNode;
-    cross?: 'show' | 'hidden';  // For showing/hiding the cross
-    rangeBar?: 'show' | 'hidden';  // For showing/hiding the range bar
-    secondaryButton?: 'show' | 'hidden';  // For showing/hiding the secondary button
-    secondaryText?: string;  // Text for the secondary button
-    search?: 'show' | 'hidden';  // For showing/hiding the search input
-    select?: 'show' | 'hidden';  // For showing/hiding the select dropdown
+    cross?: 'show' | 'hidden';
+    rangeBar?: 'show' | 'hidden';
+    secondaryButton?: 'show' | 'hidden'; 
+    secondaryText?: string;
+    search?: 'show' | 'hidden';
+    select?: 'show' | 'hidden'; 
 }
 
 const HomeHeader: React.FC<HomeHeaderProps> = ({
@@ -29,9 +30,15 @@ const HomeHeader: React.FC<HomeHeaderProps> = ({
     select = 'show',
 }) => {
     const [showCross, setShowCross] = useState(false);
+    const navigate = useNavigate(); 
 
     const handleCrossClick = () => {
         setShowCross(!showCross);
+        navigate('/incidents');
+    };
+
+    const handleSecondaryButtonClick = () => {
+        navigate('/incidents');
     };
 
     return (
@@ -88,6 +95,7 @@ const HomeHeader: React.FC<HomeHeaderProps> = ({
                 )}
                 {secondaryButton === 'show' && (
                     <button
+                        onClick={handleSecondaryButtonClick}
                         className='bg-[#FAFAFA] text-[#71717A] border border-solid border-[#ddd] rounded-md px-12 py-2 flex items-center gap-2'>
                         {secondaryText}
                     </button>
