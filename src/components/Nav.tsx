@@ -16,7 +16,7 @@ function Nav() {
   ];
 
   return (
-    <nav className='flex items-center justify-between px-4 py-6 bg-[#E4E4E780] border-b-2'>
+    <nav className='flex items-center relative z-50 justify-between px-4 py-6 bg-[#E4E4E780] border-b-2'>
       <div className="logo">
         <img src="/images/logo.svg" alt="" />
       </div>
